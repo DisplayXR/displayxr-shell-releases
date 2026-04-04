@@ -11,7 +11,7 @@ Go to [**Releases**](https://github.com/DisplayXR/displayxr-shell-releases/relea
 | Windows  | `displayxr-shell.exe` | In development |
 | macOS    | — | Planned |
 
-> **No releases yet.** The first release will be published when [Phase 4](https://github.com/dfattal/openxr-3d-display/issues/119) (Spatial Companion) reaches alpha.
+> **No releases yet.** The first release will be published when [Phase 4](https://github.com/DisplayXR/displayxr-runtime/issues/5) (Spatial Companion) reaches alpha.
 
 ## Requirements
 
