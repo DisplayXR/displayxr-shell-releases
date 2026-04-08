@@ -6,18 +6,16 @@ Spatial window manager for tracked 3D displays. Turns a single 3D display into a
 
 Go to [**Releases**](https://github.com/DisplayXR/displayxr-shell-releases/releases) for the latest version.
 
-| Platform | File | Status |
-|----------|------|--------|
-| Windows  | `displayxr-shell.exe` | In development |
-| macOS    | — | Planned |
-
-> **No releases yet.** The first release will be published when [Phase 4](https://github.com/DisplayXR/displayxr-runtime/issues/5) (Spatial Companion) reaches alpha.
+| File | Description |
+|------|-------------|
+| `DisplayXRSetup-*.exe` | **Installer** — installs runtime + shell + service. Recommended for most users. |
+| `displayxr-shell.exe` | **Standalone shell update** — drop-in replacement for manual updates. Requires runtime already installed. |
 
 ## Requirements
 
 - Windows 10 version 2004 or later
 - A tracked 3D display supported by DisplayXR (e.g., Leia SR display)
-- [DisplayXR Runtime](https://github.com/DisplayXR/displayxr-runtime) installed separately
+- The installer includes the DisplayXR Runtime — no separate installation needed
 
 ## Features
 
@@ -63,12 +61,13 @@ Found a bug or have a feature request? [Open an issue](https://github.com/Displa
 
 ## License
 
-Proprietary. See [LICENSE](LICENSE).
+This repository distributes software under two licenses:
 
-- Free for personal and non-commercial use
-- Commercial use requires a separate license
-- Redistribution of binaries is not permitted
+- **DisplayXR Shell** (`displayxr-shell.exe`): Proprietary — free for personal and non-commercial use. Commercial use requires a license.
+- **DisplayXR Runtime** (DLLs, service, manifest bundled in the installer): [Boost Software License 1.0](https://github.com/DisplayXR/displayxr-runtime/blob/main/LICENSE) — open source.
+
+See [LICENSE](LICENSE) for full terms.
 
 ## Related
 
-- [displayxr-runtime](https://github.com/DisplayXR/displayxr-runtime) — Open source OpenXR runtime (required)
+- [displayxr-runtime](https://github.com/DisplayXR/displayxr-runtime) — Open source OpenXR runtime (source code, docs, vendor integration guides)
