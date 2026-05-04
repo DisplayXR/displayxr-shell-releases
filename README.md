@@ -23,9 +23,11 @@ Go to [**Releases**](https://github.com/DisplayXR/displayxr-shell-releases/relea
 
 The bundled installer always pairs the shell with a known-good runtime version, so installer users do not need to think about this. For the **standalone shell update** path:
 
-| Shell | Compatible runtime |
-|-------|--------------------|
-| `v1.1.x` | `displayxr-runtime` ≥ `v1.0.0` (latest tested: `v1.2.0`) |
+| Shell | Required runtime |
+|-------|------------------|
+| `v1.1.x` | `displayxr-runtime` ≥ `v1.1.2` (latest tested: `v1.2.0`) |
+
+The shell installer reads `HKLM\Software\DisplayXR\Runtime\InstallPath` and refuses to install if the runtime is absent.
 
 Pair with the latest [`displayxr-runtime`](https://github.com/DisplayXR/displayxr-runtime/releases) for the most recent multi-compositor performance work and extension surface. Shell and runtime version independently — newer runtime + older shell is supported within a major version.
 
