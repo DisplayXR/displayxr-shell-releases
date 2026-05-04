@@ -2,6 +2,8 @@
 
 Spatial window manager for tracked 3D displays. Turns a single 3D display into a multi-app spatial desktop where OpenXR 3D apps and regular 2D Windows apps coexist in a head-tracked 3D workspace.
 
+The DisplayXR Shell is the **reference workspace controller** built on the runtime's `XR_EXT_spatial_workspace` and `XR_EXT_app_launcher` extensions. It is one of N possible controllers — OEMs, vertical integrators, kiosks, and AI-agent drivers can ship their own using the same documented surface.
+
 ## Download
 
 Go to [**Releases**](https://github.com/DisplayXR/displayxr-shell-releases/releases) for the latest version.
@@ -16,6 +18,16 @@ Go to [**Releases**](https://github.com/DisplayXR/displayxr-shell-releases/relea
 - Windows 10 version 2004 or later
 - A tracked 3D display supported by DisplayXR (e.g., Leia SR display)
 - The installer includes the DisplayXR Runtime — no separate installation needed
+
+## Compatibility
+
+The bundled installer always pairs the shell with a known-good runtime version, so installer users do not need to think about this. For the **standalone shell update** path:
+
+| Shell | Compatible runtime |
+|-------|--------------------|
+| `v1.1.x` | `displayxr-runtime` ≥ `v1.0.0` (latest tested: `v1.2.0`) |
+
+Pair with the latest [`displayxr-runtime`](https://github.com/DisplayXR/displayxr-runtime/releases) for the most recent multi-compositor performance work and extension surface. Shell and runtime version independently — newer runtime + older shell is supported within a major version.
 
 ## Features
 
@@ -57,6 +69,16 @@ Go to [**Releases**](https://github.com/DisplayXR/displayxr-shell-releases/relea
 | Ctrl+7 | Helix | Vertical spiral staircase |
 | Ctrl+8 | Expose | Grid overview (Mission Control style) |
 
+### App Launcher and Lifecycle
+
+- **App launcher panel** (Ctrl+O) — registered apps with 3D icon tiles
+- **System tray integration** — shell status, quick controls
+- **Graceful exit** — captured 2D windows restored to original desktop positions on dismiss
+
+### 3D Capture
+
+- **Stereo screenshot** (Ctrl+Shift+C) — full-resolution side-by-side atlas before display-specific weaving, with JSON sidecar metadata
+
 ### Keyboard Shortcuts
 
 | Key | Action |
@@ -73,6 +95,7 @@ Go to [**Releases**](https://github.com/DisplayXR/displayxr-shell-releases/relea
 | ESC | Dismiss shell |
 | V | Toggle 2D/3D display mode |
 | Ctrl+O | App launcher panel |
+| Ctrl+Shift+C | 3D screenshot |
 | Ctrl+1 to Ctrl+8 | Layout presets (see above) |
 
 ## How It Works
@@ -104,8 +127,6 @@ Your Apps
 
 ## Coming Soon
 
-- **Graceful exit** — restore all captured windows to their original desktop positions when leaving the shell
-- **App launcher** — registered apps config, system tray icon, launch new apps from within the spatial environment
 - **Keyboard input to modern apps** — input forwarding to WinUI/XAML apps (Win11 Notepad, Chrome, Terminal)
 - **macOS support** — Metal multi-compositor and macOS shell app
 
@@ -125,4 +146,5 @@ See [LICENSE](LICENSE) for full terms.
 ## Related
 
 - [displayxr-runtime](https://github.com/DisplayXR/displayxr-runtime) — Open source OpenXR runtime (source code, docs, vendor integration guides)
+- [displayxr-extensions](https://github.com/DisplayXR/displayxr-extensions) — `XR_EXT_*` headers including the workspace controller surface this shell is built on
 - [displayxr-unity](https://github.com/DisplayXR/displayxr-unity) — Unity plugin for 3D displays
