@@ -12,6 +12,7 @@ Go to [**Releases**](https://github.com/DisplayXR/displayxr-shell-releases/relea
 |------|-------------|
 | `DisplayXRSetup-*.exe` | **Installer** — installs runtime + shell + service. Recommended for most users. |
 | `displayxr-shell.exe` | **Standalone shell update** — drop-in replacement for manual updates. Requires runtime already installed. |
+| `DisplayXRMCPSetup-*.exe` | **DisplayXR MCP Tools** (optional) — agent / voice control. Writes a registry capability flag the runtime + shell read at startup. Download from [DisplayXR/displayxr-mcp releases](https://github.com/DisplayXR/displayxr-mcp/releases). |
 
 ## Requirements
 
@@ -23,9 +24,10 @@ Go to [**Releases**](https://github.com/DisplayXR/displayxr-shell-releases/relea
 
 The bundled installer always pairs the shell with a known-good runtime version, so installer users do not need to think about this. For the **standalone shell update** path:
 
-| Shell | Required runtime |
-|-------|------------------|
-| `v1.1.x` | `displayxr-runtime` ≥ `v1.1.2` (latest tested: `v1.2.0`) |
+| Shell | Required runtime | Optional |
+|-------|------------------|----------|
+| `v1.1.x` | `displayxr-runtime` ≥ `v1.1.2` (latest tested: `v1.2.0`) | — |
+| `v1.2.x` | `displayxr-runtime` ≥ `v1.2.1` | For agent / voice control: install **DisplayXR MCP Tools** ≥ `v0.3.0` |
 
 The shell installer reads `HKLM\Software\DisplayXR\Runtime\InstallPath` and refuses to install if the runtime is absent.
 
