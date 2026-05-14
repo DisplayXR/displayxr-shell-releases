@@ -6,32 +6,32 @@ The DisplayXR Shell is the **reference workspace controller** built on the runti
 
 ## Download
 
-Go to [**Releases**](https://github.com/DisplayXR/displayxr-shell-releases/releases) for the latest version.
+The shell ships as a small standalone installer. **You must install the [DisplayXR Runtime](https://github.com/DisplayXR/displayxr-runtime/releases) first** — the shell installer reads `HKLM\Software\DisplayXR\Runtime\InstallPath` and will refuse to install otherwise.
 
-| File | Description |
-|------|-------------|
-| `DisplayXRSetup-*.exe` | **Installer** — installs runtime + shell + service. Recommended for most users. |
-| `displayxr-shell.exe` | **Standalone shell update** — drop-in replacement for manual updates. Requires runtime already installed. |
-| `DisplayXRMCPSetup-*.exe` | **DisplayXR MCP Tools** (optional) — agent / voice control. Writes a registry capability flag the runtime + shell read at startup. Download from [DisplayXR/displayxr-mcp releases](https://github.com/DisplayXR/displayxr-mcp/releases). |
+| File | Where | Description |
+|------|-------|-------------|
+| `DisplayXRSetup-*.exe` | [displayxr-runtime releases](https://github.com/DisplayXR/displayxr-runtime/releases) | **DisplayXR Runtime** — install this first. Provides the OpenXR runtime, native compositors, and Windows service. |
+| `DisplayXRShellSetup-*.exe` | [this repo's releases](https://github.com/DisplayXR/displayxr-shell-releases/releases) | **DisplayXR Shell** — installs the shell into the runtime's tree and registers it at `HKLM\Software\DisplayXR\WorkspaceControllers\shell`. |
+| `DisplayXRMCPSetup-*.exe` | [displayxr-mcp releases](https://github.com/DisplayXR/displayxr-mcp/releases) | **DisplayXR MCP Tools** (optional) — agent / voice control. Writes the registry capability flag the runtime + shell read at startup. |
+
+The website's [Get Started](https://displayxr.org/getting-started) page walks through the install order end-to-end.
 
 ## Requirements
 
 - Windows 10 version 2004 or later
 - A tracked 3D display supported by DisplayXR (e.g., Leia SR display)
-- The installer includes the DisplayXR Runtime — no separate installation needed
+- **DisplayXR Runtime installed first** (see above) — the shell installer is intentionally lightweight and depends on the runtime being present
 
 ## Compatibility
 
-The bundled installer always pairs the shell with a known-good runtime version, so installer users do not need to think about this. For the **standalone shell update** path:
+Shell and runtime version independently within a major version. Newer runtime + older shell is supported.
 
 | Shell | Required runtime | Optional |
 |-------|------------------|----------|
 | `v1.1.x` | `displayxr-runtime` ≥ `v1.1.2` (latest tested: `v1.2.0`) | — |
 | `v1.2.x` | `displayxr-runtime` ≥ `v1.2.1` | For agent / voice control: install **DisplayXR MCP Tools** ≥ `v0.3.0` |
 
-The shell installer reads `HKLM\Software\DisplayXR\Runtime\InstallPath` and refuses to install if the runtime is absent.
-
-Pair with the latest [`displayxr-runtime`](https://github.com/DisplayXR/displayxr-runtime/releases) for the most recent multi-compositor performance work and extension surface. Shell and runtime version independently — newer runtime + older shell is supported within a major version.
+Pair with the latest [`displayxr-runtime`](https://github.com/DisplayXR/displayxr-runtime/releases) for the most recent multi-compositor performance work and extension surface.
 
 ## Features
 
@@ -143,7 +143,7 @@ Found a bug or have a feature request? [Open an issue](https://github.com/Displa
 This repository distributes software under two licenses:
 
 - **DisplayXR Shell** (`displayxr-shell.exe`): Proprietary — free for personal and non-commercial use. Commercial use requires a license.
-- **DisplayXR Runtime** (DLLs, service, manifest bundled in the installer): [Boost Software License 1.0](https://github.com/DisplayXR/displayxr-runtime/blob/main/LICENSE) — open source.
+- **DisplayXR Runtime** (separate installer, hard prereq): [Boost Software License 1.0](https://github.com/DisplayXR/displayxr-runtime/blob/main/LICENSE) — open source.
 
 See [LICENSE](LICENSE) for full terms.
 
