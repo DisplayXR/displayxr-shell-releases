@@ -4,6 +4,8 @@ Spatial window manager for tracked 3D displays. Turns a single 3D display into a
 
 The DisplayXR Shell is the **reference workspace controller** built on the runtime's `XR_EXT_spatial_workspace` and `XR_EXT_app_launcher` extensions. It is one of N possible controllers — OEMs, vertical integrators, kiosks, and AI-agent drivers can ship their own using the same documented surface.
 
+> **Windows only today.** macOS support (Metal multi-compositor + macOS shell app) is in development — see [Coming Soon](#coming-soon).
+
 ## Download
 
 The shell ships as a small standalone installer. **You must install the [DisplayXR Runtime](https://github.com/DisplayXR/displayxr-runtime/releases) first** — the shell installer reads `HKLM\Software\DisplayXR\Runtime\InstallPath` and will refuse to install otherwise.
