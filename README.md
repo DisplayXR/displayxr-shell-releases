@@ -2,9 +2,9 @@
 
 Spatial window manager for tracked 3D displays. Turns a single 3D display into a multi-app spatial desktop where OpenXR 3D apps and regular 2D Windows apps coexist in a head-tracked 3D workspace.
 
-The DisplayXR Shell is the **reference workspace controller** built on the runtime's `XR_EXT_spatial_workspace` and `XR_EXT_app_launcher` extensions. It is one of N possible controllers — OEMs, vertical integrators, kiosks, and AI-agent drivers can ship their own using the same documented surface.
+The DisplayXR Shell is the **reference workspace controller** built on the runtime's `XR_DXR_spatial_workspace` extension and `*.displayxr.json` launcher manifests. It is one of N possible controllers — OEMs, vertical integrators, kiosks, and AI-agent drivers can ship their own using the same documented surface.
 
-> **Windows only today.** macOS support (Metal multi-compositor + macOS shell app) is in development — see [Coming Soon](#coming-soon).
+> **Windows, plus macOS in beta.** The Windows build is the stable one; the macOS build (`DisplayXRShell-*.pkg`, Metal multi-compositor) ships with every release as a **beta**.
 
 ## Download
 
@@ -14,13 +14,14 @@ The shell ships as a small standalone installer. **You must install the [Display
 |------|-------|-------------|
 | `DisplayXRSetup-*.exe` | [displayxr-runtime releases](https://github.com/DisplayXR/displayxr-runtime/releases) | **DisplayXR Runtime** — install this first. Provides the OpenXR runtime, native compositors, and Windows service. |
 | `DisplayXRShellSetup-*.exe` | [this repo's releases](https://github.com/DisplayXR/displayxr-shell-releases/releases) | **DisplayXR Shell** — installs the shell into the runtime's tree and registers it at `HKLM\Software\DisplayXR\WorkspaceControllers\shell`. |
+| `DisplayXRShell-*.pkg` | [this repo's releases](https://github.com/DisplayXR/displayxr-shell-releases/releases) | **DisplayXR Shell for macOS (beta)** — install the macOS runtime (`DisplayXR-Installer-*.pkg`) first, and keep shell and runtime upgraded together. |
 | `DisplayXRMCPSetup-*.exe` | [displayxr-mcp releases](https://github.com/DisplayXR/displayxr-mcp/releases) | **DisplayXR MCP Tools** (optional) — agent / voice control. Writes the registry capability flag the runtime + shell read at startup. |
 
-The website's [Get Started](https://displayxr.org/getting-started) page walks through the install order end-to-end.
+The website's [Download](https://displayxr.org/download) page walks through the install order end-to-end.
 
 ## Requirements
 
-- Windows 10 version 2004 or later
+- Windows 10 version 2004 or later, or macOS (beta)
 - A tracked 3D display supported by DisplayXR (e.g., Leia SR display)
 - **DisplayXR Runtime installed first** (see above) — the shell installer is intentionally lightweight and depends on the runtime being present
 
@@ -134,7 +135,7 @@ Your Apps
 ## Coming Soon
 
 - **Keyboard input to modern apps** — input forwarding to WinUI/XAML apps (Win11 Notepad, Chrome, Terminal)
-- **macOS support** — Metal multi-compositor and macOS shell app
+- **macOS out of beta** — the macOS shell reaching parity with Windows
 
 ## Issues
 
@@ -152,5 +153,5 @@ See [LICENSE](LICENSE) for full terms.
 ## Related
 
 - [displayxr-runtime](https://github.com/DisplayXR/displayxr-runtime) — Open source OpenXR runtime (source code, docs, vendor integration guides)
-- [displayxr-extensions](https://github.com/DisplayXR/displayxr-extensions) — `XR_EXT_*` headers including the workspace controller surface this shell is built on
+- [displayxr-extensions](https://github.com/DisplayXR/displayxr-extensions) — `XR_DXR_*` headers including the workspace controller surface this shell is built on
 - [displayxr-unity](https://github.com/DisplayXR/displayxr-unity) — Unity plugin for 3D displays
