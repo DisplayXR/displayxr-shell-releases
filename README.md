@@ -27,12 +27,13 @@ The website's [Download](https://displayxr.org/download) page walks through the 
 
 ## Compatibility
 
-Shell and runtime version independently within a major version. Newer runtime + older shell is supported.
+Shell and runtime version independently within a major version. Newer runtime + older shell is supported, except where a row below says otherwise. Each release's notes state its exact requirements.
 
 | Shell | Required runtime | Optional |
 |-------|------------------|----------|
 | `v1.1.x` | `displayxr-runtime` ≥ `v1.1.2` (latest tested: `v1.2.0`) | — |
 | `v1.2.x` | `displayxr-runtime` ≥ `v1.2.1` | For agent / voice control: install **DisplayXR MCP Tools** ≥ `v0.3.0` |
+| `v2.3.x` | `displayxr-runtime` ≥ `v2.16.0` (the installer enforces it) | **macOS:** with runtime ≥ `v2.23.0`, use shell ≥ `v2.3.2`. An older shell looks washed out there, so upgrade the two together |
 
 Pair with the latest [`displayxr-runtime`](https://github.com/DisplayXR/displayxr-runtime/releases) for the most recent multi-compositor performance work and extension surface.
 
